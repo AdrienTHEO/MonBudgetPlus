@@ -1,0 +1,107 @@
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\bin\Debug\GestionBudget.exe.config
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\bin\Debug\GestionBudget.exe
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\bin\Debug\GestionBudget.pdb
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.csprojAssemblyReference.cache
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.Form1.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.Properties.Resources.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.csproj.GenerateResource.cache
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.exe
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.pdb
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormInscription.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormConnexion.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormConctactUs.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.Form2.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.Form3.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.UC_Budget.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.UserControlDashboad.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.UserControlCategorie.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.UserControlNotif.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.UserControlSetting.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.UserControlStat.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.UserControlTransactions.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormAjouterBudget.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormAjouterTransaction.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormAjouterDepense.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormModifierBudget.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\bin\Debug\LiveCharts.dll
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\bin\Debug\LiveCharts.pdb
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\bin\Debug\LiveCharts.xml
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormStatistique.resources
+C:\Users\ORNELLA NOEL\source\repos\GestionBudget\GestionBudget\obj\Debug\GestionBudget.csproj.CopyComplete
+D:\GestionBudget\GestionBudget\bin\Debug\GestionBudget.exe.config
+D:\GestionBudget\GestionBudget\bin\Debug\GestionBudget.exe
+D:\GestionBudget\GestionBudget\bin\Debug\GestionBudget.pdb
+D:\GestionBudget\GestionBudget\bin\Debug\LiveCharts.dll
+D:\GestionBudget\GestionBudget\bin\Debug\LiveCharts.WinForms.dll
+D:\GestionBudget\GestionBudget\bin\Debug\LiveCharts.Wpf.dll
+D:\GestionBudget\GestionBudget\bin\Debug\LiveCharts.pdb
+D:\GestionBudget\GestionBudget\bin\Debug\LiveCharts.xml
+D:\GestionBudget\GestionBudget\bin\Debug\LiveCharts.WinForms.pdb
+D:\GestionBudget\GestionBudget\bin\Debug\LiveCharts.WinForms.xml
+D:\GestionBudget\GestionBudget\bin\Debug\LiveCharts.Wpf.pdb
+D:\GestionBudget\GestionBudget\bin\Debug\LiveCharts.Wpf.xml
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.csprojAssemblyReference.cache
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.Form1.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.Form2.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.Form3.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormAjouterBudget.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormAjouterDepense.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormAjouterTransaction.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormConctactUs.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormConnexion.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormInscription.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormModifierBudget.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormStatistique.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.Properties.Resources.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.UC_Budget.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.UserControlCategorie.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.UserControlDashboad.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.UserControlNotif.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.UserControlSetting.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.UserControlStat.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.UserControlTransactions.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.csproj.GenerateResource.cache
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.csproj.CopyComplete
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.exe
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.pdb
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormModifierProfil.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormProfil.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormModifierTransaction.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormPopup.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormContribuerObjectif.resources
+D:\GestionBudget\GestionBudget\obj\Debug\GestionBudget.FormObjectifs.resources
+D:\GestionBudget\GestionBudget\bin\Debug\BouncyCastle.Cryptography.dll
+D:\GestionBudget\GestionBudget\bin\Debug\ClosedXML.dll
+D:\GestionBudget\GestionBudget\bin\Debug\ClosedXML.Parser.dll
+D:\GestionBudget\GestionBudget\bin\Debug\DocumentFormat.OpenXml.dll
+D:\GestionBudget\GestionBudget\bin\Debug\DocumentFormat.OpenXml.Framework.dll
+D:\GestionBudget\GestionBudget\bin\Debug\ExcelNumberFormat.dll
+D:\GestionBudget\GestionBudget\bin\Debug\itextsharp.dll
+D:\GestionBudget\GestionBudget\bin\Debug\Microsoft.Bcl.HashCode.dll
+D:\GestionBudget\GestionBudget\bin\Debug\RBush.dll
+D:\GestionBudget\GestionBudget\bin\Debug\SixLabors.Fonts.dll
+D:\GestionBudget\GestionBudget\bin\Debug\System.Buffers.dll
+D:\GestionBudget\GestionBudget\bin\Debug\System.Memory.dll
+D:\GestionBudget\GestionBudget\bin\Debug\System.Numerics.Vectors.dll
+D:\GestionBudget\GestionBudget\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\GestionBudget\GestionBudget\bin\Debug\BouncyCastle.Cryptography.xml
+D:\GestionBudget\GestionBudget\bin\Debug\ClosedXML.pdb
+D:\GestionBudget\GestionBudget\bin\Debug\ClosedXML.xml
+D:\GestionBudget\GestionBudget\bin\Debug\ClosedXML.Parser.xml
+D:\GestionBudget\GestionBudget\bin\Debug\DocumentFormat.OpenXml.xml
+D:\GestionBudget\GestionBudget\bin\Debug\DocumentFormat.OpenXml.Framework.xml
+D:\GestionBudget\GestionBudget\bin\Debug\ExcelNumberFormat.xml
+D:\GestionBudget\GestionBudget\bin\Debug\itextsharp.xml
+D:\GestionBudget\GestionBudget\bin\Debug\Microsoft.Bcl.HashCode.xml
+D:\GestionBudget\GestionBudget\bin\Debug\RBush.xml
+D:\GestionBudget\GestionBudget\bin\Debug\SixLabors.Fonts.xml
+D:\GestionBudget\GestionBudget\bin\Debug\System.Buffers.xml
+D:\GestionBudget\GestionBudget\bin\Debug\System.Memory.xml
+D:\GestionBudget\GestionBudget\bin\Debug\System.Numerics.Vectors.xml
+D:\GestionBudget\GestionBudget\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
