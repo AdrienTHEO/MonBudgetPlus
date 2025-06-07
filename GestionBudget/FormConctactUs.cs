@@ -95,9 +95,12 @@ namespace GestionBudget
                     EnableSsl = true,
                 };
 
-                string destinataire = "messangaperig3@gmail.com"; 
+                // Ton adresse de réception
+                string destinataire = "adrientamba96@gmail.com";
                 string sujet = "Nouveau message de contact depuis l'application";
-                string corps = $"Nom: {nom}\nEmail: {email}\n\nMessage:\n{message}";
+
+                // Contenu de l'email
+                string corps = $"Nom : {nom}\nEmail : {email}\n\nMessage :\n{message}";
 
                 var mailMessage = new MailMessage
                 {
@@ -106,7 +109,12 @@ namespace GestionBudget
                     Body = corps,
                     IsBodyHtml = false,
                 };
+
+                // 🔁 TOI tu reçois le message
                 mailMessage.To.Add(destinataire);
+
+                // 🔁 Optionnel mais pratique : tu pourras répondre directement à l'utilisateur
+                mailMessage.ReplyToList.Add(new MailAddress(email));
 
                 smtpClient.Send(mailMessage);
             }

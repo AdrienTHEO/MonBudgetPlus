@@ -235,8 +235,9 @@ namespace GestionBudget
             lblSoldeActuel.Text = $"{(totalRevenus - totalDepenses):C2}";
             lblTotalRevenus.Text = $"{totalRevenus:C2}";
             lblDepensesMois.Text = $"{depensesMois:C2}";
-            lblMoyennePourcent.Text = $"{moyennePourcentage:F1}%";
+            lblMoyennePourcent.Text = $"{moyennePourcentage:F1}% utilisé ";
         }
+
 
 
         private void label3_Click(object sender, EventArgs e)
@@ -346,7 +347,9 @@ namespace GestionBudget
 
         private void button8_Click(object sender, EventArgs e)
         {
-            
+            FormConnexion formConnexion = new FormConnexion();
+            formConnexion.Show();
+            this.Close();
         }
 
         private void pictureBox12_Click(object sender, EventArgs e)
@@ -782,6 +785,16 @@ namespace GestionBudget
                 MessageBox.Show("Export Excel terminé !");
 
             }
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel9_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 

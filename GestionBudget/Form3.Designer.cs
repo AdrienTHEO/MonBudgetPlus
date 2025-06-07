@@ -35,19 +35,37 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.lblNom = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxProfil = new System.Windows.Forms.PictureBox();
             this.lblNotifCount = new System.Windows.Forms.Label();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.btnNotifications = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.button8 = new System.Windows.Forms.Button();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.button6 = new System.Windows.Forms.Button();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnExporterExcel = new System.Windows.Forms.Button();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnExporterPDF = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.lblSoldeActuel = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -61,61 +79,43 @@
             this.lblMoyennePourcent = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btnActualiserObjectif = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.flowLayoutObjectifs = new System.Windows.Forms.FlowLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.profilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parametreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deconnexionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnActualiserObjectif = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.flowLayoutObjectifs = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnExporterPDF = new System.Windows.Forms.Button();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxProfil = new System.Windows.Forms.PictureBox();
-            this.btnNotifications = new System.Windows.Forms.PictureBox();
-            this.btnExporterExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfil)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNotifications)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel8.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfil)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnNotifications)).BeginInit();
+            this.panel10.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -135,7 +135,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Window;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(63, 12);
+            this.label1.Location = new System.Drawing.Point(33, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 25);
@@ -156,10 +156,10 @@
             this.panel4.Controls.Add(this.linkLabel3);
             this.panel4.Controls.Add(this.linkLabel1);
             this.panel4.Controls.Add(this.btnNotifications);
-            this.panel4.Location = new System.Drawing.Point(214, 0);
+            this.panel4.Location = new System.Drawing.Point(184, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(657, 53);
+            this.panel4.Size = new System.Drawing.Size(687, 53);
             this.panel4.TabIndex = 5;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
@@ -177,9 +177,22 @@
             this.lblNom.AutoSize = true;
             this.lblNom.Location = new System.Drawing.Point(67, 10);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(15, 13);
+            this.lblNom.Size = new System.Drawing.Size(10, 13);
             this.lblNom.TabIndex = 14;
-            this.lblNom.Text = "la";
+            this.lblNom.Text = ".";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(447, 30);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(17, 13);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 9;
+            this.pictureBox4.TabStop = false;
             // 
             // textBox1
             // 
@@ -213,6 +226,32 @@
             this.comboBox1.Size = new System.Drawing.Size(172, 21);
             this.comboBox1.TabIndex = 7;
             this.comboBox1.Text = "changer de mois";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(612, 21);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(29, 21);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBoxProfil
+            // 
+            this.pictureBoxProfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxProfil.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxProfil.Image")));
+            this.pictureBoxProfil.Location = new System.Drawing.Point(571, 15);
+            this.pictureBoxProfil.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxProfil.Name = "pictureBoxProfil";
+            this.pictureBoxProfil.Size = new System.Drawing.Size(45, 32);
+            this.pictureBoxProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxProfil.TabIndex = 5;
+            this.pictureBoxProfil.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBoxProfil, "\r\nFaire un clique gauche pour voir \r\n");
+            this.pictureBoxProfil.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // lblNotifCount
             // 
@@ -252,6 +291,18 @@
             this.linkLabel1.Text = "Acceuil";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // btnNotifications
+            // 
+            this.btnNotifications.Image = ((System.Drawing.Image)(resources.GetObject("btnNotifications.Image")));
+            this.btnNotifications.Location = new System.Drawing.Point(517, 21);
+            this.btnNotifications.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNotifications.Name = "btnNotifications";
+            this.btnNotifications.Size = new System.Drawing.Size(26, 24);
+            this.btnNotifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnNotifications.TabIndex = 13;
+            this.btnNotifications.TabStop = false;
+            this.btnNotifications.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.RoyalBlue;
@@ -274,6 +325,18 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(65, 614);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(32, 44);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 15;
+            this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
+            // 
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.Transparent;
@@ -293,6 +356,18 @@
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(18, 415);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(26, 24);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 11;
+            this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
+            // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.Transparent;
@@ -302,7 +377,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.Window;
-            this.button6.Location = new System.Drawing.Point(11, 193);
+            this.button6.Location = new System.Drawing.Point(11, 407);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(171, 38);
@@ -310,6 +385,17 @@
             this.button6.Text = "Notifications";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(18, 346);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(26, 24);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 9;
+            this.pictureBox9.TabStop = false;
             // 
             // button5
             // 
@@ -320,7 +406,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.Window;
-            this.button5.Location = new System.Drawing.Point(11, 151);
+            this.button5.Location = new System.Drawing.Point(11, 338);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(124, 38);
@@ -329,6 +415,17 @@
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(16, 244);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(26, 24);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 5;
+            this.pictureBox7.TabStop = false;
             // 
             // button3
             // 
@@ -339,7 +436,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.Window;
-            this.button3.Location = new System.Drawing.Point(8, 109);
+            this.button3.Location = new System.Drawing.Point(9, 237);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(173, 38);
@@ -347,6 +444,17 @@
             this.button3.Text = "Transactions";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(16, 160);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(26, 24);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 3;
+            this.pictureBox6.TabStop = false;
             // 
             // button2
             // 
@@ -357,14 +465,25 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.Window;
-            this.button2.Location = new System.Drawing.Point(8, 67);
+            this.button2.Location = new System.Drawing.Point(9, 151);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 38);
+            this.button2.Size = new System.Drawing.Size(152, 38);
             this.button2.TabIndex = 2;
             this.button2.Text = "Budgets";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(16, 72);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(26, 24);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 1;
+            this.pictureBox5.TabStop = false;
             // 
             // button1
             // 
@@ -375,7 +494,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(8, 25);
+            this.button1.Location = new System.Drawing.Point(9, 64);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(156, 38);
@@ -407,6 +526,98 @@
             this.panel3.Size = new System.Drawing.Size(689, 744);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // btnExporterExcel
+            // 
+            this.btnExporterExcel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnExporterExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExporterExcel.Location = new System.Drawing.Point(301, 614);
+            this.btnExporterExcel.Name = "btnExporterExcel";
+            this.btnExporterExcel.Size = new System.Drawing.Size(159, 38);
+            this.btnExporterExcel.TabIndex = 18;
+            this.btnExporterExcel.Text = "Exporter sous fichier Excel";
+            this.btnExporterExcel.UseVisualStyleBackColor = false;
+            this.btnExporterExcel.Click += new System.EventHandler(this.btnExporterExcel_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::GestionBudget.Properties.Resources._3d_render_tax_payment_financial_business_concept;
+            this.pictureBox8.Location = new System.Drawing.Point(330, 543);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(35, 26);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 17;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::GestionBudget.Properties.Resources.online_payment_security_concept_3d_phone_bill;
+            this.pictureBox2.Location = new System.Drawing.Point(52, 543);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 26);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 16;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
+            // 
+            // btnExporterPDF
+            // 
+            this.btnExporterPDF.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnExporterPDF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExporterPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExporterPDF.Location = new System.Drawing.Point(30, 614);
+            this.btnExporterPDF.Name = "btnExporterPDF";
+            this.btnExporterPDF.Size = new System.Drawing.Size(127, 38);
+            this.btnExporterPDF.TabIndex = 15;
+            this.btnExporterPDF.Text = "Exporter en PDF";
+            this.btnExporterPDF.UseVisualStyleBackColor = false;
+            this.btnExporterPDF.Click += new System.EventHandler(this.btnExporterPDF_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(27, 572);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(530, 28);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Vous permettant ainsi de mieux les visualiser et mieux distinguer les changement " +
+    "\r\ndans votre maniere dorganiser vos budget\r\n";
+            this.label9.Click += new System.EventHandler(this.label9_Click_1);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(398, 554);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 15);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Vos  budgets\r\n";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(97, 554);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(171, 15);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Toutes les transactions du mois";
+            this.label5.Click += new System.EventHandler(this.label5_Click_1);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(27, 512);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(569, 28);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Dans le soucis de rendre notre application encore plus proffessionnell nous vous " +
+    "offrons\r\n  la possibilite de telecharger vos informations sus forme pdf a l\'inst" +
+    "ar de :";
+            this.label4.Click += new System.EventHandler(this.label4_Click_1);
             // 
             // panel8
             // 
@@ -551,9 +762,79 @@
             this.panel11.Location = new System.Drawing.Point(14, 96);
             this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(657, 406);
+            this.panel11.Size = new System.Drawing.Size(657, 389);
             this.panel11.TabIndex = 5;
             this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.pictureBox1);
+            this.panel9.Controls.Add(this.button4);
+            this.panel9.Controls.Add(this.btnActualiserObjectif);
+            this.panel9.Location = new System.Drawing.Point(5, 53);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(653, 162);
+            this.panel9.TabIndex = 25;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint_1);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestionBudget.Properties.Resources._6152022_general2_13;
+            this.pictureBox1.Location = new System.Drawing.Point(301, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(281, 159);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(0, 136);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(221, 26);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "Actualiserles objectifs\r\n";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
+            // btnActualiserObjectif
+            // 
+            this.btnActualiserObjectif.Location = new System.Drawing.Point(0, 3);
+            this.btnActualiserObjectif.Name = "btnActualiserObjectif";
+            this.btnActualiserObjectif.Size = new System.Drawing.Size(221, 46);
+            this.btnActualiserObjectif.TabIndex = 0;
+            this.btnActualiserObjectif.Text = "Ajouter votre Objectif maintenant ";
+            this.btnActualiserObjectif.UseVisualStyleBackColor = true;
+            this.btnActualiserObjectif.Click += new System.EventHandler(this.btnActualiserObjectif_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(35, 6);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(476, 34);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Creer Vos objectifs d\'epargnes personnalisé et suivew son avancement \r\nen fonctio" +
+    "ns de vos contributions manuelles \r\n";
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.flowLayoutObjectifs);
+            this.panel10.Location = new System.Drawing.Point(-2, 221);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(661, 168);
+            this.panel10.TabIndex = 24;
+            // 
+            // flowLayoutObjectifs
+            // 
+            this.flowLayoutObjectifs.AutoScroll = true;
+            this.flowLayoutObjectifs.Location = new System.Drawing.Point(12, 3);
+            this.flowLayoutObjectifs.Name = "flowLayoutObjectifs";
+            this.flowLayoutObjectifs.Size = new System.Drawing.Size(631, 125);
+            this.flowLayoutObjectifs.TabIndex = 0;
+            this.flowLayoutObjectifs.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutObjectifs_Paint);
             // 
             // contextMenuStrip1
             // 
@@ -584,285 +865,6 @@
             this.deconnexionToolStripMenuItem.Text = "deconnexion";
             this.deconnexionToolStripMenuItem.Click += new System.EventHandler(this.deconnexionToolStripMenuItem_Click);
             // 
-            // btnActualiserObjectif
-            // 
-            this.btnActualiserObjectif.Location = new System.Drawing.Point(0, 3);
-            this.btnActualiserObjectif.Name = "btnActualiserObjectif";
-            this.btnActualiserObjectif.Size = new System.Drawing.Size(221, 46);
-            this.btnActualiserObjectif.TabIndex = 0;
-            this.btnActualiserObjectif.Text = "Ajouter votre Objectif maintenant ";
-            this.btnActualiserObjectif.UseVisualStyleBackColor = true;
-            this.btnActualiserObjectif.Click += new System.EventHandler(this.btnActualiserObjectif_Click);
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.pictureBox1);
-            this.panel9.Controls.Add(this.button4);
-            this.panel9.Controls.Add(this.btnActualiserObjectif);
-            this.panel9.Location = new System.Drawing.Point(5, 53);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(653, 162);
-            this.panel9.TabIndex = 25;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(0, 136);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(221, 26);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Actualiserles objectifs\r\n";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(35, 6);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(476, 34);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Creer Vos objectifs d\'epargnes personnalisé et suivew son avancement \r\nen fonctio" +
-    "ns de vos contributions manuelles \r\n";
-            // 
-            // flowLayoutObjectifs
-            // 
-            this.flowLayoutObjectifs.AutoScroll = true;
-            this.flowLayoutObjectifs.Location = new System.Drawing.Point(12, 3);
-            this.flowLayoutObjectifs.Name = "flowLayoutObjectifs";
-            this.flowLayoutObjectifs.Size = new System.Drawing.Size(631, 143);
-            this.flowLayoutObjectifs.TabIndex = 0;
-            this.flowLayoutObjectifs.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutObjectifs_Paint);
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.flowLayoutObjectifs);
-            this.panel10.Location = new System.Drawing.Point(-2, 221);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(661, 180);
-            this.panel10.TabIndex = 24;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(23, 545);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(569, 28);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Dans le soucis de rendre notre application encore plus proffessionnell nous vous " +
-    "offrons\r\n  la possibilite de telecharger vos informations sus forme pdf a l\'inst" +
-    "ar de :";
-            this.label4.Click += new System.EventHandler(this.label4_Click_1);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(97, 586);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(171, 15);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Toutes les transactions du mois";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(97, 614);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 15);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Vos  budgets\r\n";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(27, 637);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(530, 28);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Vous permettant ainsi de mieux les visualiser et mieux distinguer les changement " +
-    "\r\ndans votre maniere dorganiser vos budget\r\n";
-            this.label9.Click += new System.EventHandler(this.label9_Click_1);
-            // 
-            // btnExporterPDF
-            // 
-            this.btnExporterPDF.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnExporterPDF.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExporterPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExporterPDF.Location = new System.Drawing.Point(41, 668);
-            this.btnExporterPDF.Name = "btnExporterPDF";
-            this.btnExporterPDF.Size = new System.Drawing.Size(127, 23);
-            this.btnExporterPDF.TabIndex = 15;
-            this.btnExporterPDF.Text = "Exporter en PDF";
-            this.btnExporterPDF.UseVisualStyleBackColor = false;
-            this.btnExporterPDF.Click += new System.EventHandler(this.btnExporterPDF_Click);
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(83, 623);
-            this.pictureBox12.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(15, 29);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 15;
-            this.pictureBox12.TabStop = false;
-            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(18, 201);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(26, 24);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 11;
-            this.pictureBox10.TabStop = false;
-            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(18, 159);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(26, 24);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 9;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(15, 116);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(26, 24);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 5;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(15, 75);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(26, 24);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 3;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(15, 33);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(26, 24);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 1;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::GestionBudget.Properties.Resources._3d_render_tax_payment_financial_business_concept;
-            this.pictureBox8.Location = new System.Drawing.Point(52, 608);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(35, 26);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 17;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::GestionBudget.Properties.Resources.online_payment_security_concept_3d_phone_bill;
-            this.pictureBox2.Location = new System.Drawing.Point(52, 576);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 26);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 16;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GestionBudget.Properties.Resources._6152022_general2_13;
-            this.pictureBox1.Location = new System.Drawing.Point(301, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(281, 159);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(447, 30);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(17, 13);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 9;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(612, 21);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(29, 21);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBoxProfil
-            // 
-            this.pictureBoxProfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxProfil.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxProfil.Image")));
-            this.pictureBoxProfil.Location = new System.Drawing.Point(571, 15);
-            this.pictureBoxProfil.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxProfil.Name = "pictureBoxProfil";
-            this.pictureBoxProfil.Size = new System.Drawing.Size(45, 32);
-            this.pictureBoxProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxProfil.TabIndex = 5;
-            this.pictureBoxProfil.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBoxProfil, "\r\nFaire un clique gauche pour voir \r\n");
-            this.pictureBoxProfil.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // btnNotifications
-            // 
-            this.btnNotifications.Image = ((System.Drawing.Image)(resources.GetObject("btnNotifications.Image")));
-            this.btnNotifications.Location = new System.Drawing.Point(517, 21);
-            this.btnNotifications.Margin = new System.Windows.Forms.Padding(2);
-            this.btnNotifications.Name = "btnNotifications";
-            this.btnNotifications.Size = new System.Drawing.Size(26, 24);
-            this.btnNotifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnNotifications.TabIndex = 13;
-            this.btnNotifications.TabStop = false;
-            this.btnNotifications.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // btnExporterExcel
-            // 
-            this.btnExporterExcel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnExporterExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExporterExcel.Location = new System.Drawing.Point(377, 668);
-            this.btnExporterExcel.Name = "btnExporterExcel";
-            this.btnExporterExcel.Size = new System.Drawing.Size(159, 23);
-            this.btnExporterExcel.TabIndex = 18;
-            this.btnExporterExcel.Text = "Exporter sous fichier Excel";
-            this.btnExporterExcel.UseVisualStyleBackColor = false;
-            this.btnExporterExcel.Click += new System.EventHandler(this.btnExporterExcel_Click);
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -881,9 +883,21 @@
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfil)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNotifications)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -894,22 +908,10 @@
             this.panel7.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfil)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnNotifications)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

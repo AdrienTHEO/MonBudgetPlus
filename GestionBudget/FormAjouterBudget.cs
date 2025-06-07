@@ -76,7 +76,7 @@ namespace GestionBudget
 
                 using (OdbcCommand cmd = new OdbcCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("uid", 1); // Remplace par l'ID réel de l'utilisateur
+                    cmd.Parameters.AddWithValue("", utilisateur.Id);
                     cmd.Parameters.AddWithValue("cat", txtCategorie.Text);
                     cmd.Parameters.AddWithValue("montant", budgetDefini);
 
@@ -91,9 +91,9 @@ namespace GestionBudget
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            UC_Budget formB = new UC_Budget(utilisateur);
-            formB.Show();   // Ouvre la page d'acceuil 1
-            this.Hide();              // Optionnel : cache la page
+            MessageBox.Show("Budget ajouté avec succès !");
+            this.Close(); // Ferme après l'ajout
+
         }
     }
 }

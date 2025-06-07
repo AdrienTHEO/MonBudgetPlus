@@ -22,25 +22,9 @@ namespace GestionBudget
             InitializeComponent();
             this.utilisateur = user;
             ChargerBudgets();
-
-            // Ajouter la colonne Modifier
-            DataGridViewButtonColumn btnModifier = new DataGridViewButtonColumn();
-            btnModifier.HeaderText = "Modifier";
-            btnModifier.Text = "🖊️ Modifier";
-            btnModifier.UseColumnTextForButtonValue = true;
-            dataGridViewBudgets.Columns.Add(btnModifier);
-
-            // Ajouter la colonne Supprimer
-            DataGridViewButtonColumn btnSupprimer = new DataGridViewButtonColumn();
-            btnSupprimer.HeaderText = "Supprimer";
-            btnSupprimer.Text = "🗑️ Supprimer";
-            btnSupprimer.UseColumnTextForButtonValue = true;
-            dataGridViewBudgets.Columns.Add(btnSupprimer);
-
-
-
-
             CalculerTotalBudget();
+            CalculerBudgetRestantTotal();
+            AfficherGraphiqueBudget();
         }
 
         private void ChargerBudgets()
@@ -52,32 +36,68 @@ namespace GestionBudget
                 {
                     connection.Open();
                     string query = @"
-                SELECT 
-                    b.categorie,
-                    b.budget_defini,
-                    COALESCE(SUM(d.montant), 0) AS montant_depense,
-                    (b.budget_defini - COALESCE(SUM(d.montant), 0)) AS solde_restant,
-                    CASE 
-                        WHEN b.budget_defini > 0 
-                        THEN ROUND((COALESCE(SUM(d.montant), 0) / b.budget_defini) * 100, 2)
-                        ELSE 0 
-                    END AS pourcentage_utilise
-                FROM budget b
-                LEFT JOIN depense d ON b.id = d.budget_id
-                WHERE b.utilisateur_id = 1
-                GROUP BY b.id, b.categorie, b.budget_defini";
+                            SELECT 
+                                b.id,  
+                                b.categorie,
+                                b.budget_defini,
+                                COALESCE(SUM(d.montant), 0) AS montant_depense,
+                                (b.budget_defini - COALESCE(SUM(d.montant), 0)) AS solde_restant,
+                                CASE 
+                                    WHEN b.budget_defini > 0 
+                                    THEN ROUND((COALESCE(SUM(d.montant), 0) / b.budget_defini) * 100, 2)
+                                    ELSE 0 
+                                END AS pourcentage_utilise
+                            FROM budget b
+                            LEFT JOIN depense d ON b.id = d.budget_id
+                            WHERE b.utilisateur_id = ?
+                            GROUP BY b.id, b.categorie, b.budget_defini";
 
-                    using (OdbcCommand command = new OdbcCommand(query, connection)) // 🔄 AJOUTÉ
+
+
+
+                    using (OdbcCommand command = new OdbcCommand(query, connection)) 
                     {
-                        command.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id); // 🔄 AJOUTÉ
 
-                        using (OdbcDataAdapter adapter = new OdbcDataAdapter(command)) // 🔄 AJOUTÉ
+                        command.Parameters.AddWithValue("", utilisateur.Id); 
+
+
+
+
+                        using (OdbcDataAdapter adapter = new OdbcDataAdapter(command)) 
                         {
                             DataTable table = new DataTable();
+                            dataGridViewBudgets.Columns.Clear(); // Réinitialise complètement les colonnes
                             adapter.Fill(table);
 
                             dataGridViewBudgets.AutoGenerateColumns = true;
                             dataGridViewBudgets.DataSource = table;
+
+                            bool boutonModifierExiste = dataGridViewBudgets.Columns
+                                .OfType<DataGridViewButtonColumn>()
+                                .Any(col => col.Name == "Modifier");
+
+                            if (!boutonModifierExiste)
+                             {
+                                DataGridViewButtonColumn btnModifier = new DataGridViewButtonColumn();
+                                btnModifier.HeaderText = "Modifier";
+                                btnModifier.Text = "🖊️ Modifier";
+                                btnModifier.UseColumnTextForButtonValue = true;
+                                btnModifier.Name = "Modifier";
+                                dataGridViewBudgets.Columns.Add(btnModifier);   // Ajouter colonne Modifier
+                            }
+
+
+                            if (!dataGridViewBudgets.Columns.Contains("Supprimer"))
+                            {
+                                DataGridViewButtonColumn btnSupprimer = new DataGridViewButtonColumn();
+                                btnSupprimer.HeaderText = "Supprimer";
+                                btnSupprimer.Text = "🗑️ Supprimer";
+                                btnSupprimer.UseColumnTextForButtonValue = true;
+                                btnSupprimer.Name = "Supprimer";
+                                dataGridViewBudgets.Columns.Add(btnSupprimer);
+                            }
+                            CalculerTotalBudget();
+                            CalculerBudgetRestantTotal();
                             AfficherGraphiqueBudget();
 
                         }
@@ -90,7 +110,7 @@ namespace GestionBudget
                 }
             }
         }
-        private void SupprimerBudget(string categorie)
+        private void SupprimerBudget(int budgetId)
         {
             string connectionString = "DSN=PostgreLocal;";
             using (OdbcConnection connection = new OdbcConnection(connectionString))
@@ -98,12 +118,12 @@ namespace GestionBudget
                 try
                 {
                     connection.Open();
-                    string query = "DELETE FROM budget WHERE categorie = ? AND utilisateur_id = 1"; // Adapte selon l'utilisateur
+                    string query = "DELETE FROM budget WHERE id = ? AND utilisateur_id = ?";
 
                     using (OdbcCommand command = new OdbcCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@categorie", categorie); // 🔄 MODIFIÉ : nom explicite
-                        command.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id); // 🔄 AJOUTÉ
+                        command.Parameters.AddWithValue("", budgetId);
+                        command.Parameters.AddWithValue("", utilisateur.Id);
                         command.ExecuteNonQuery();
                     }
                 }
@@ -135,7 +155,7 @@ namespace GestionBudget
                 }
             }
 
-            lblTotalBudget.Text = "Budget total : " + total.ToString("N2") + " €";
+            lblTotalBudget.Text =  total.ToString("N2") + " fcfa";
         }
         private void label3_Click(object sender, EventArgs e)
         {
@@ -145,15 +165,21 @@ namespace GestionBudget
         private void btnAjouterBudget_Click(object sender, EventArgs e)
         {
             FormAjouterBudget formB = new FormAjouterBudget(utilisateur);
-            formB.Show();   // Ouvre la page d'acceuil 1
-            this.Hide();              // Optionnel : cache la page
+            formB.ShowDialog(); // Attend que le formulaire soit fermé
+            ChargerBudgets();   // Recharge les données
+            CalculerTotalBudget();
+            AfficherGraphiqueBudget();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormAjouterDepense formB = new FormAjouterDepense(utilisateur);
-            formB.Show();   // Ouvre la page d'acceuil 1
-            this.Hide();              // Optionnel : cache la page
+            FormAjouterDepense formD = new FormAjouterDepense(utilisateur);
+            formD.ShowDialog(); // Attend la fermeture
+            ChargerBudgets();   // Recharge la grille
+            CalculerTotalBudget();
+            AfficherGraphiqueBudget();
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -161,38 +187,6 @@ namespace GestionBudget
 
         }
 
-        private void dataGridViewBudgets_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0) // Ignorer les clics sur l'en-tête
-            {
-                // Identifier le nom de la colonne
-                string colonneCliquee = dataGridViewBudgets.Columns[e.ColumnIndex].HeaderText;
-
-                // Récupérer la catégorie (clé logique)
-                string categorie = dataGridViewBudgets.Rows[e.RowIndex].Cells["categorie"].Value.ToString();
-
-                if (colonneCliquee == "Modifier")
-                {
-                    // Ouvrir une petite fenêtre pour modifier
-                    FormModifierBudget modifForm = new FormModifierBudget(categorie);
-                    modifForm.ShowDialog();
-
-                    // Rafraîchir après modification
-                    ChargerBudgets();
-                }
-                else if (colonneCliquee == "Supprimer")
-                {
-                    DialogResult result = MessageBox.Show("Voulez-vous supprimer ce budget ?", "Confirmation", MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
-                    {
-                        SupprimerBudget(categorie); // 🔄 Supprime avec user lié
-                        ChargerBudgets();           // 🔄 Recharge après suppression
-                        CalculerTotalBudget();
-                        AfficherGraphiqueBudget();
-                    }
-                }
-            }
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -241,6 +235,81 @@ namespace GestionBudget
 
             pieChart.Series = series;
             panelChart.Controls.Add(pieChart);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblTotalBudget_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CalculerBudgetRestantTotal()
+        {
+            decimal totalBudget = 0;
+            decimal totalDepense = 0;
+
+            foreach (DataGridViewRow row in dataGridViewBudgets.Rows)
+            {
+                if (row.Cells["budget_defini"].Value != null &&
+                    decimal.TryParse(row.Cells["budget_defini"].Value.ToString(), out decimal budgetDefini))
+                {
+                    totalBudget += budgetDefini;
+                }
+
+                if (row.Cells["montant_depense"].Value != null &&
+                    decimal.TryParse(row.Cells["montant_depense"].Value.ToString(), out decimal depense))
+                {
+                    totalDepense += depense;
+                }
+            }
+
+            decimal budgetRestant = totalBudget - totalDepense;
+
+            // Assure-toi d'avoir un label lblBudgetRestant créé sur ton UserControl
+            lblBudgetRestant.Text = $"{budgetRestant:N2} fcfa";
+        }
+
+
+        private void dataGridViewBudgets_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Ignorer les clics sur l'en-tête
+            {
+                // Identifier le nom de la colonne
+                string colonneCliquee = dataGridViewBudgets.Columns[e.ColumnIndex].HeaderText;
+
+                // Récupérer l'ID du budget
+                if (dataGridViewBudgets.Rows[e.RowIndex].Cells["id"].Value == null)
+                {
+                    MessageBox.Show("ID du budget introuvable.");
+                    return;
+                }
+
+                int budgetId = Convert.ToInt32(dataGridViewBudgets.Rows[e.RowIndex].Cells["id"].Value);
+                string categorie = dataGridViewBudgets.Rows[e.RowIndex].Cells["categorie"].Value.ToString();
+
+                if (colonneCliquee == "Modifier")
+                {
+                    FormModifierBudget modifForm = new FormModifierBudget(categorie, utilisateur);
+                    modifForm.ShowDialog();
+
+                    ChargerBudgets(); // Rafraîchir
+                }
+                else if (colonneCliquee == "Supprimer")
+                {
+                    DialogResult result = MessageBox.Show($"Voulez-vous supprimer le budget '{categorie}' ?", "Confirmation", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        SupprimerBudget(budgetId); // Suppression via ID
+                        ChargerBudgets();          // Rafraîchir
+                        CalculerTotalBudget();
+                        AfficherGraphiqueBudget();
+                    }
+                }
+            }
         }
 
     }

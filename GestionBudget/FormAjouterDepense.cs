@@ -19,24 +19,35 @@ namespace GestionBudget
             InitializeComponent();
             string connectionString = "DSN=PostgreLocal;";
             utilisateur = user;
+
             using (OdbcConnection connection = new OdbcConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT id, categorie FROM budget WHERE utilisateur_id = 1"; // Adapter utilisateur
+                string query = "SELECT id, categorie FROM budget WHERE utilisateur_id = ?";
 
                 using (OdbcCommand cmd = new OdbcCommand(query, connection))
-                using (OdbcDataReader reader = cmd.ExecuteReader())
                 {
-                    Dictionary<string, int> categories = new Dictionary<string, int>();
-                    while (reader.Read())
+                    // Passage du paramètre utilisateur.Id ici, avant ExecuteReader()
+                    cmd.Parameters.AddWithValue("", utilisateur.Id);
+
+                    using (OdbcDataReader reader = cmd.ExecuteReader())
                     {
-                        comboCategorie.Items.Add(reader["categorie"].ToString());
-                        comboCategorie.Tag = categories;
-                        categories[reader["categorie"].ToString()] = Convert.ToInt32(reader["id"]);
+                        Dictionary<string, int> categories = new Dictionary<string, int>();
+
+                        while (reader.Read())
+                        {
+                            string categorie = reader["categorie"].ToString();
+                            int id = Convert.ToInt32(reader["id"]);
+                            comboCategorie.Items.Add(categorie);
+                            categories[categorie] = id;
+                        }
+
+                        comboCategorie.Tag = categories; // Affecte le dictionnaire après la boucle
                     }
                 }
             }
         }
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -178,6 +178,7 @@ namespace GestionBudget
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(163, 71);
             this.panel7.TabIndex = 6;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // lblMoyennePourcent
             // 
@@ -197,10 +198,11 @@ namespace GestionBudget
             this.label8.Location = new System.Drawing.Point(3, 6);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(117, 20);
+            this.label8.Size = new System.Drawing.Size(106, 20);
             this.label8.TabIndex = 0;
             this.label8.Text = "📊 % Moyens";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label1
             // 

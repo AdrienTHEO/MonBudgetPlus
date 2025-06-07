@@ -146,10 +146,8 @@ namespace GestionBudget
 
             panelGraphique.Controls.Add(chart);
 
-            // Initialisation des données
             Dictionary<string, double> revenusParMois = new Dictionary<string, double>();
             Dictionary<string, double> depensesParMois = new Dictionary<string, double>();
-
 
             string connectionString = "DSN=PostgreLocal;";
             using (var conn = new OdbcConnection(connectionString))
@@ -159,29 +157,33 @@ namespace GestionBudget
                 string query = @"
             SELECT type, EXTRACT(MONTH FROM date_transaction) AS mois, SUM(montant)
             FROM transaction
+            WHERE utilisateur_id = ?
             GROUP BY type, mois
-            ORDER BY mois;
-        ";
+            ORDER BY mois;";
 
-                using var cmd = new OdbcCommand(query, conn);
-                using var reader = cmd.ExecuteReader();
+                using var command = new OdbcCommand(query, conn);
+                command.Parameters.Add(new OdbcParameter("utilisateur_id", utilisateur.Id));
+
+                using var reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
                     string type = reader.GetString(0);
-                    int mois = reader.GetInt32(1);
+                    int mois = Convert.ToInt32(reader.GetDouble(1));
                     double total = reader.GetDouble(2);
 
                     string moisStr = new DateTime(2024, mois, 1).ToString("MMM");
 
                     if (type == "revenu")
                         revenusParMois[moisStr] = total;
-                    else
+                    else if (type == "depense")
                         depensesParMois[moisStr] = total;
                 }
             }
 
-            var labels = revenusParMois.Keys.Union(depensesParMois.Keys).Distinct().OrderBy(m => m).ToList();
+            var labels = Enumerable.Range(1, 12)
+                .Select(m => new DateTime(2024, m, 1).ToString("MMM"))
+                .ToList();
 
             chart.Series = new SeriesCollection
     {
@@ -206,7 +208,6 @@ namespace GestionBudget
         }
 
 
-
         private void ChargerGraphiqueCategorieDepense()
         {
             panelCategorie.Controls.Clear();
@@ -227,11 +228,12 @@ namespace GestionBudget
             string query = @"
         SELECT categorie, SUM(montant)
         FROM transaction
-        WHERE type = 'depense'
-        GROUP BY categorie;
-    ";
+        WHERE type = 'depense' AND utilisateur_id = ?
+        GROUP BY categorie;";
 
             using var cmd = new OdbcCommand(query, conn);
+            cmd.Parameters.Add(new OdbcParameter("user_id", utilisateur.Id));
+
             using var reader = cmd.ExecuteReader();
 
             while (reader.Read())
@@ -272,29 +274,37 @@ namespace GestionBudget
             string query = @"
         SELECT type, EXTRACT(MONTH FROM date_transaction) AS mois, SUM(montant)
         FROM transaction
+        WHERE utilisateur_id = ?
         GROUP BY type, mois
-        ORDER BY mois;
-    ";
+        ORDER BY mois;";
 
             using var cmd = new OdbcCommand(query, conn);
+            cmd.Parameters.Add(new OdbcParameter("user_id", utilisateur.Id));
+
             using var reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
                 string type = reader.GetString(0);
-                int mois = reader.GetInt32(1);
+                int mois = Convert.ToInt32(reader.GetDouble(1));
                 double total = reader.GetDouble(2);
 
                 string moisStr = new DateTime(2024, mois, 1).ToString("MMM");
 
                 if (type == "revenu")
                     revenusParMois[moisStr] = total;
-                else
+                else if (type == "depense")
                     depensesParMois[moisStr] = total;
             }
 
-            var labels = revenusParMois.Keys.Union(depensesParMois.Keys).Distinct().OrderBy(m => m).ToList();
-            var soldes = labels.Select(m => (revenusParMois.ContainsKey(m) ? revenusParMois[m] : 0) - (depensesParMois.ContainsKey(m) ? depensesParMois[m] : 0)).ToList();
+            var labels = Enumerable.Range(1, 12)
+                .Select(m => new DateTime(2024, m, 1).ToString("MMM"))
+                .ToList();
+
+            var soldes = labels.Select(m =>
+                (revenusParMois.ContainsKey(m) ? revenusParMois[m] : 0) -
+                (depensesParMois.ContainsKey(m) ? depensesParMois[m] : 0))
+                .ToList();
 
             chart.Series = new SeriesCollection
     {
@@ -508,8 +518,9 @@ namespace GestionBudget
 
 
         private void ChargerGraphiqueSoldeMensuel(DateTime debut, DateTime fin)
-        {
-            var revenuParMois = new Dictionary<string, decimal>();
+        {            
+
+         var revenuParMois = new Dictionary<string, decimal>();
             var depenseParMois = new Dictionary<string, decimal>();
 
             string connectionString = "DSN=PostgreLocal;";
@@ -630,7 +641,6 @@ namespace GestionBudget
             ChargerGraphiqueRevenuDepense();
             ChargerGraphiqueCategorieDepense();
             ChargerGraphiqueSoldeMensuel();
-
         }
 
         private void panelBudget_Paint(object sender, PaintEventArgs e)
@@ -639,6 +649,16 @@ namespace GestionBudget
         }
 
         private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -200,40 +200,46 @@ namespace GestionBudget
         {
 
         }
-        private void ChargerTransactions(DateTime? startDate = null, DateTime? endDate = null, string type = null)
+
+        private void ChargerTransactions(DateTime? dateDebut = null, DateTime? dateFin = null, string categorieFiltre = null)
         {
-            string query = "SELECT id, date_transaction, categorie, montant, type FROM transaction WHERE utilisateur_id = @utilisateur_id";
-
-            // Appliquer les filtres sur les dates et le type si spécifiés
-            if (startDate.HasValue)
-                query += " AND date_transaction >= @startDate";
-            if (endDate.HasValue)
-                query += " AND date_transaction <= @endDate";
-            if (!string.IsNullOrEmpty(type))
-                query += " AND type = @type";
-
-            // Remplir le DataGridView avec les transactions
             string connectionString = "DSN=PostgreLocal;";
             using (OdbcConnection connection = new OdbcConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                    using (OdbcCommand command = new OdbcCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
-                        if (startDate.HasValue)
-                            command.Parameters.AddWithValue("@startDate", startDate.Value);
-                        if (endDate.HasValue)
-                            command.Parameters.AddWithValue("@endDate", endDate.Value);
-                        if (!string.IsNullOrEmpty(type))
-                            command.Parameters.AddWithValue("@type", type);
+                    string query = @"
+                SELECT id, montant, categorie, type, date_transaction
+                FROM transaction
+                WHERE utilisateur_id = ?";
 
-                        using (OdbcDataAdapter adapter = new OdbcDataAdapter(command))
+                    // Ajouter les filtres dans la requête SQL
+                    if (dateDebut.HasValue)
+                        query += " AND date_transaction >= ?";
+                    if (dateFin.HasValue)
+                        query += " AND date_transaction <= ?";
+                    if (!string.IsNullOrEmpty(categorieFiltre) && categorieFiltre != "Toutes")
+                        query += " AND categorie = ?";
+
+                    query += " ORDER BY date_transaction DESC";
+
+                    using (OdbcCommand cmd = new OdbcCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
+
+                        if (dateDebut.HasValue)
+                            cmd.Parameters.AddWithValue("@dateDebut", dateDebut.Value);
+                        if (dateFin.HasValue)
+                            cmd.Parameters.AddWithValue("@dateFin", dateFin.Value);
+                        if (!string.IsNullOrEmpty(categorieFiltre) && categorieFiltre != "Toutes")
+                            cmd.Parameters.AddWithValue("@categorie", categorieFiltre);
+
+                        using (OdbcDataAdapter adapter = new OdbcDataAdapter(cmd))
                         {
-                            DataTable table = new DataTable();
-                            adapter.Fill(table);
-                            dataGridView2.DataSource = table;
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            dataGridView2.DataSource = dt;
                         }
                     }
                 }
@@ -244,6 +250,7 @@ namespace GestionBudget
             }
         }
 
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -251,6 +258,16 @@ namespace GestionBudget
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+
+            DateTime dateDebut = dtpDebut.Value.Date;
+            DateTime dateFin = dtpFin.Value.Date;
+            string categorieFiltre = cbxCategorieFiltre.SelectedItem?.ToString();
+
+            // Recharge les transactions filtrées
+            ChargerTransactions(dateDebut, dateFin, categorieFiltre);
+
+            // Met à jour le graphique à partir des lignes visibles du DataGridView
+            FiltrerEtMettreAJourGraphique();
             FiltrerEtMettreAJourGraphique();
         }
 
@@ -454,31 +471,56 @@ namespace GestionBudget
 
         private void ChargerCategories()
         {
-            var categories = new HashSet<string>();
-
-            foreach (DataGridViewRow row in dataGridView2.Rows)
-            {
-                if (row.IsNewRow) continue;
-                string cat = row.Cells["categorie"].Value.ToString();
-                categories.Add(cat);
-            }
-
             cbxCategorieFiltre.Items.Clear();
             cbxCategorieFiltre.Items.Add("Toutes");
-            cbxCategorieFiltre.Items.AddRange(categories.ToArray());
-            cbxCategorieFiltre.SelectedIndex = 0;
+
+            string connectionString = "DSN=PostgreLocal;";
+            using (OdbcConnection connection = new OdbcConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT DISTINCT categorie FROM transaction WHERE utilisateur_id = ?";
+                    using (OdbcCommand cmd = new OdbcCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
+                        using (OdbcDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                cbxCategorieFiltre.Items.Add(reader.GetString(0));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors du chargement des catégories : " + ex.Message);
+                }
+            }
+
+            cbxCategorieFiltre.SelectedIndex = 0; // Sélectionne "Toutes" par défaut
         }
+
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-            // Réinitialise les filtres
-            dtpDebut.Value = DateTime.Now.AddMonths(-1); // ou DateTime.Today selon ton choix
-            dtpFin.Value = DateTime.Now;
-            cbxCategorieFiltre.SelectedIndex = -1; // Déselectionne la catégorie
 
-            ChargerTransactions();
-            InitialiserGraphe();
-            MettreAJourGraphe();  // Après chaque changement
+                // Recharger toutes les données
+                ChargerTransactions();
+
+                // Réinitialiser les filtres
+                cbxCategorieFiltre.SelectedIndex = 0;
+                cbxCategorieFiltre.SelectedIndex = 0;
+
+                dtpDebut.Value = DateTime.Now.AddMonths(-1);
+                dtpFin.Value = DateTime.Now;
+
+                MettreAJourGraphe(); // Graphique non filtré
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

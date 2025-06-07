@@ -51,14 +51,33 @@ namespace GestionBudget
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string type = cbxType.SelectedItem.ToString();
-            string categorie = (type == "revenu") ? txtCategorie.Text : cbxCategorieExistante.SelectedItem?.ToString();
+            string type = cbxType.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(type))
+            {
+                MessageBox.Show("Veuillez sélectionner un type de transaction.");
+                return;
+            }
+
+            string categorie = (type == "revenu") ? txtCategorie.Text.Trim() : cbxCategorieExistante.SelectedItem?.ToString();
             decimal montant;
             DateTime date = dtpDate.Value;
 
-            if (string.IsNullOrEmpty(categorie) || !decimal.TryParse(txtMontant.Text, out montant))
+            // Validation
+            if (string.IsNullOrEmpty(categorie))
             {
-                MessageBox.Show("Veuillez saisir toutes les informations valides.");
+                MessageBox.Show("Veuillez saisir une catégorie valide.");
+                return;
+            }
+
+            if (!decimal.TryParse(txtMontant.Text.Trim(), out montant) || montant <= 0)
+            {
+                MessageBox.Show("Veuillez saisir un montant valide supérieur à zéro.");
+                return;
+            }
+
+            if (type == "depense" && cbxCategorieExistante.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner une catégorie existante pour la dépense.");
                 return;
             }
 
@@ -77,11 +96,11 @@ namespace GestionBudget
 
                     using (OdbcCommand cmd = new OdbcCommand(insertTransaction, connection, transaction))
                     {
-                        cmd.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
-                        cmd.Parameters.AddWithValue("@montant", montant);
-                        cmd.Parameters.AddWithValue("@categorie", categorie);
-                        cmd.Parameters.AddWithValue("@type", type);
-                        cmd.Parameters.AddWithValue("@date_transaction", date);
+                        cmd.Parameters.Add("@utilisateur_id", OdbcType.Int).Value = utilisateur.Id;
+                        cmd.Parameters.Add("@montant", OdbcType.Decimal).Value = montant;
+                        cmd.Parameters.Add("@categorie", OdbcType.VarChar, 255).Value = categorie;
+                        cmd.Parameters.Add("@type", OdbcType.VarChar, 50).Value = type;
+                        cmd.Parameters.Add("@date_transaction", OdbcType.DateTime).Value = date;
                         cmd.ExecuteNonQuery();
                     }
 
@@ -91,13 +110,12 @@ namespace GestionBudget
                         string insertBudget = "INSERT INTO budget (utilisateur_id, categorie, budget_defini) VALUES (?, ?, ?)";
                         using (OdbcCommand cmd = new OdbcCommand(insertBudget, connection, transaction))
                         {
-                            cmd.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
-                            cmd.Parameters.AddWithValue("@categorie", categorie);
-                            cmd.Parameters.AddWithValue("@budget_defini", montant);
+                            cmd.Parameters.Add("@utilisateur_id", OdbcType.Int).Value = utilisateur.Id;
+                            cmd.Parameters.Add("@categorie", OdbcType.VarChar, 255).Value = categorie;
+                            cmd.Parameters.Add("@budget_defini", OdbcType.Decimal).Value = montant;
                             cmd.ExecuteNonQuery();
                         }
                     }
-
                     // 3. Si dépense : insérer dans dépense
                     else if (type == "depense")
                     {
@@ -106,8 +124,8 @@ namespace GestionBudget
 
                         using (OdbcCommand cmd = new OdbcCommand(queryBudgetId, connection, transaction))
                         {
-                            cmd.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
-                            cmd.Parameters.AddWithValue("@categorie", categorie);
+                            cmd.Parameters.Add("@utilisateur_id", OdbcType.Int).Value = utilisateur.Id;
+                            cmd.Parameters.Add("@categorie", OdbcType.VarChar, 255).Value = categorie;
                             var result = cmd.ExecuteScalar();
                             if (result != null)
                                 budgetId = Convert.ToInt32(result);
@@ -118,9 +136,9 @@ namespace GestionBudget
                             string insertDepense = "INSERT INTO depense (budget_id, montant, date_depense) VALUES (?, ?, ?)";
                             using (OdbcCommand cmd = new OdbcCommand(insertDepense, connection, transaction))
                             {
-                                cmd.Parameters.AddWithValue("@budget_id", budgetId);
-                                cmd.Parameters.AddWithValue("@montant", montant);
-                                cmd.Parameters.AddWithValue("@date_depense", date);
+                                cmd.Parameters.Add("@budget_id", OdbcType.Int).Value = budgetId;
+                                cmd.Parameters.Add("@montant", OdbcType.Decimal).Value = montant;
+                                cmd.Parameters.Add("@date_depense", OdbcType.DateTime).Value = date;
                                 cmd.ExecuteNonQuery();
                             }
                         }
@@ -132,7 +150,18 @@ namespace GestionBudget
 
                     transaction.Commit();
                     MessageBox.Show("Transaction ajoutée avec succès.");
-                    this.Close(); // Ferme le formulaire
+
+                    // Optionnel : Réinitialiser les champs pour nouvelle saisie
+                    txtMontant.Clear();
+                    if (type == "revenu")
+                        txtCategorie.Clear();
+                    else
+                        cbxCategorieExistante.SelectedIndex = -1;
+
+                    dtpDate.Value = DateTime.Now;
+
+                    // Fermer si tu préfères
+                    // this.Close();
                 }
                 catch (Exception ex)
                 {

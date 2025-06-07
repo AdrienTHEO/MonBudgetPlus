@@ -57,16 +57,16 @@ namespace GestionBudget
                             ancienneDate = Convert.ToDateTime(reader["date_transaction"]);
 
                             cboType.SelectedItem = type;
-                            txtMontant.Text = ancienMontant.ToString();
+                            txtMontant.Text = ancienMontant.ToString("0.##");
                             dateTimePicker1.Value = ancienneDate;
 
-                            if (type == "Revenu")
+                            if (type.Equals("Revenu", StringComparison.OrdinalIgnoreCase))
                             {
                                 txtCategorie.Visible = true;
                                 cbxCategorie.Visible = false;
                                 txtCategorie.Text = ancienneCategorie;
                             }
-                            else if (type == "Depense")
+                            else if (type.Equals("Depense", StringComparison.OrdinalIgnoreCase))
                             {
                                 txtCategorie.Visible = false;
                                 cbxCategorie.Visible = true;
@@ -103,129 +103,161 @@ namespace GestionBudget
 
         private void btnModifierTransaction_Click(object sender, EventArgs e)
         {
-            // Récupère les informations du formulaire
-            string type = cboType.SelectedItem.ToString();  // "Revenu" ou "Dépense"
-            string categorie = (type == "revenu") ? txtCategorie.Text : cbxCategorie.SelectedItem?.ToString();
-            decimal montant;
-            DateTime date = dateTimePicker1.Value;
-
-            // Validation des données
-            if (string.IsNullOrEmpty(categorie) || !decimal.TryParse(txtMontant.Text, out montant))
+            if (cboType.SelectedItem == null)
             {
-                MessageBox.Show("Veuillez saisir toutes les informations valides.");
+                MessageBox.Show("Veuillez sélectionner un type de transaction.");
                 return;
             }
+
+            string type = cboType.SelectedItem.ToString();
+            string categorie;
+
+            if (type.Equals("Revenu", StringComparison.OrdinalIgnoreCase))
+                categorie = txtCategorie.Text.Trim();
+            else if (type.Equals("Depense", StringComparison.OrdinalIgnoreCase))
+                categorie = cbxCategorie.SelectedItem?.ToString();
+            else
+            {
+                MessageBox.Show("Type de transaction invalide.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(categorie))
+            {
+                MessageBox.Show("Veuillez saisir une catégorie valide.");
+                return;
+            }
+
+            if (!decimal.TryParse(txtMontant.Text, out decimal montant))
+            {
+                MessageBox.Show("Veuillez saisir un montant valide.");
+                return;
+            }
+
+            DateTime date = dateTimePicker1.Value;
 
             string connectionString = "DSN=PostgreLocal;";
 
             using (OdbcConnection connection = new OdbcConnection(connectionString))
             {
                 connection.Open();
-                OdbcTransaction transaction = connection.BeginTransaction();
-
-                try
+                using (OdbcTransaction transaction = connection.BeginTransaction())
                 {
-                    // 1. Mettre à jour la transaction dans la table transaction
-                    string updateTransaction = @"
-                UPDATE transaction 
-                SET montant = ?, categorie = ?, type = ?, date_transaction = ?
-                WHERE id = ? AND utilisateur_id = ?";
-
-                    using (OdbcCommand cmd = new OdbcCommand(updateTransaction, connection, transaction))
+                    try
                     {
-                        cmd.Parameters.AddWithValue("@montant", montant);
-                        cmd.Parameters.AddWithValue("@categorie", categorie);
-                        cmd.Parameters.AddWithValue("@type", type);
-                        cmd.Parameters.AddWithValue("@date_transaction", date);
-                        cmd.Parameters.AddWithValue("@id", transactionId);  // transactionId venant du formulaire
-                        cmd.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
-                        cmd.ExecuteNonQuery();
-                    }
+                        // 1. Mettre à jour la transaction dans la table transaction
+                        string updateTransaction = @"
+                    UPDATE transaction 
+                    SET montant = ?, categorie = ?, type = ?, date_transaction = ?
+                    WHERE id = ? AND utilisateur_id = ?";
 
-                    // 2. Si c'est un revenu, mettre à jour ou insérer dans la table budget
-                    if (type == "revenu")
-                    {
-                        // Vérifie si un budget pour la catégorie existe déjà
-                        string checkBudgetQuery = "SELECT COUNT(*) FROM budget WHERE utilisateur_id = ? AND categorie = ?";
-                        int budgetCount = 0;
-                        using (OdbcCommand cmd = new OdbcCommand(checkBudgetQuery, connection, transaction))
+                        using (OdbcCommand cmd = new OdbcCommand(updateTransaction, connection, transaction))
                         {
-                            cmd.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
+                            cmd.Parameters.AddWithValue("@montant", montant);
                             cmd.Parameters.AddWithValue("@categorie", categorie);
-                            budgetCount = Convert.ToInt32(cmd.ExecuteScalar());
+                            cmd.Parameters.AddWithValue("@type", type);
+                            cmd.Parameters.AddWithValue("@date_transaction", date);
+                            cmd.Parameters.AddWithValue("@id", transactionId);
+                            cmd.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
+                            cmd.ExecuteNonQuery();
                         }
 
-                        // Si le budget existe déjà, on met à jour le budget existant
-                        if (budgetCount > 0)
+                        // 2. Si c'est un revenu, mettre à jour ou insérer dans la table budget
+                        if (type.Equals("Revenu", StringComparison.OrdinalIgnoreCase))
                         {
-                            string updateBudget = "UPDATE budget SET budget_defini = ? WHERE utilisateur_id = ? AND categorie = ?";
-                            using (OdbcCommand cmd = new OdbcCommand(updateBudget, connection, transaction))
-                            {
-                                cmd.Parameters.AddWithValue("@budget_defini", montant);
-                                cmd.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
-                                cmd.Parameters.AddWithValue("@categorie", categorie);
-                                cmd.ExecuteNonQuery();
-                            }
-                        }
-                        // Si le budget n'existe pas, on en crée un nouveau
-                        else
-                        {
-                            string insertBudget = "INSERT INTO budget (utilisateur_id, categorie, budget_defini) VALUES (?, ?, ?)";
-                            using (OdbcCommand cmd = new OdbcCommand(insertBudget, connection, transaction))
+                            string checkBudgetQuery = "SELECT COUNT(*) FROM budget WHERE utilisateur_id = ? AND categorie = ?";
+                            int budgetCount = 0;
+                            using (OdbcCommand cmd = new OdbcCommand(checkBudgetQuery, connection, transaction))
                             {
                                 cmd.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
                                 cmd.Parameters.AddWithValue("@categorie", categorie);
-                                cmd.Parameters.AddWithValue("@budget_defini", montant);
-                                cmd.ExecuteNonQuery();
+                                budgetCount = Convert.ToInt32(cmd.ExecuteScalar());
                             }
-                        }
-                    }
 
-                    // 3. Si c'est une dépense, mettre à jour ou insérer dans la table depense
-                    else if (type == "depense")
-                    {
-                        // Trouver l'id du budget associé à la catégorie
-                        string queryBudgetId = "SELECT id FROM budget WHERE utilisateur_id = ? AND categorie = ?";
-                        int budgetId = -1;
-
-                        using (OdbcCommand cmd = new OdbcCommand(queryBudgetId, connection, transaction))
-                        {
-                            cmd.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
-                            cmd.Parameters.AddWithValue("@categorie", categorie);
-                            var result = cmd.ExecuteScalar();
-                            if (result != null)
-                                budgetId = Convert.ToInt32(result);
-                        }
-
-                        if (budgetId > 0)
-                        {
-                            string updateDepense = "UPDATE depense SET montant = ?, date_depense = ? WHERE budget_id = ? AND montant = ? AND date_depense = ?";
-                            using (OdbcCommand cmd = new OdbcCommand(updateDepense, connection, transaction))
+                            if (budgetCount > 0)
                             {
-                                cmd.Parameters.AddWithValue("@montant", montant);
-                                cmd.Parameters.AddWithValue("@date_depense", date);
-                                cmd.Parameters.AddWithValue("@budget_id", budgetId);
-                                cmd.Parameters.AddWithValue("@ancienMontant", montant);  // Ancien montant, si nécessaire
-                                cmd.Parameters.AddWithValue("@ancienneDate", date);      // Ancienne date, si nécessaire
-                                cmd.ExecuteNonQuery();
+                                string updateBudget = "UPDATE budget SET budget_defini = ? WHERE utilisateur_id = ? AND categorie = ?";
+                                using (OdbcCommand cmd = new OdbcCommand(updateBudget, connection, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@budget_defini", montant);
+                                    cmd.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
+                                    cmd.Parameters.AddWithValue("@categorie", categorie);
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                            else
+                            {
+                                string insertBudget = "INSERT INTO budget (utilisateur_id, categorie, budget_defini) VALUES (?, ?, ?)";
+                                using (OdbcCommand cmd = new OdbcCommand(insertBudget, connection, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
+                                    cmd.Parameters.AddWithValue("@categorie", categorie);
+                                    cmd.Parameters.AddWithValue("@budget_defini", montant);
+                                    cmd.ExecuteNonQuery();
+                                }
                             }
                         }
-                        else
+                        // 3. Si c'est une dépense, mettre à jour ou insérer dans la table depense
+                        else if (type.Equals("Depense", StringComparison.OrdinalIgnoreCase))
                         {
-                            throw new Exception("Aucun budget trouvé pour cette catégorie.");
-                        }
-                    }
+                            string queryBudgetId = "SELECT id FROM budget WHERE utilisateur_id = ? AND categorie = ?";
+                            int budgetId = -1;
 
-                    // Commit des transactions
-                    transaction.Commit();
-                    MessageBox.Show("Transaction modifiée avec succès.");
-                    this.Close();  // Ferme le formulaire
-                }
-                catch (Exception ex)
-                {
-                    // Rollback en cas d'erreur
-                    transaction.Rollback();
-                    MessageBox.Show("Erreur lors de la modification de la transaction : " + ex.Message);
+                            using (OdbcCommand cmd = new OdbcCommand(queryBudgetId, connection, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@utilisateur_id", utilisateur.Id);
+                                cmd.Parameters.AddWithValue("@categorie", categorie);
+                                var result = cmd.ExecuteScalar();
+                                if (result != null && int.TryParse(result.ToString(), out int parsedId))
+                                    budgetId = parsedId;
+                            }
+
+                            if (budgetId > 0)
+                            {
+                                // Important : On utilise les anciennes valeurs pour WHERE pour cibler la bonne dépense
+                                string updateDepense = @"
+                            UPDATE depense 
+                            SET montant = ?, date_depense = ? 
+                            WHERE budget_id = ? AND montant = ? AND date_depense = ?";
+
+                                using (OdbcCommand cmd = new OdbcCommand(updateDepense, connection, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@montant", montant);
+                                    cmd.Parameters.AddWithValue("@date_depense", date);
+                                    cmd.Parameters.AddWithValue("@budget_id", budgetId);
+                                    cmd.Parameters.AddWithValue("@ancienMontant", ancienMontant);
+                                    cmd.Parameters.AddWithValue("@ancienneDate", ancienneDate);
+                                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                                    if (rowsAffected == 0)
+                                    {
+                                        // Si aucune dépense mise à jour, on peut insérer une nouvelle dépense
+                                        string insertDepense = "INSERT INTO depense (budget_id, montant, date_depense) VALUES (?, ?, ?)";
+                                        using (OdbcCommand insertCmd = new OdbcCommand(insertDepense, connection, transaction))
+                                        {
+                                            insertCmd.Parameters.AddWithValue("@budget_id", budgetId);
+                                            insertCmd.Parameters.AddWithValue("@montant", montant);
+                                            insertCmd.Parameters.AddWithValue("@date_depense", date);
+                                            insertCmd.ExecuteNonQuery();
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                throw new Exception("Aucun budget trouvé pour cette catégorie.");
+                            }
+                        }
+
+                        transaction.Commit();
+                        MessageBox.Show("Transaction modifiée avec succès.");
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Erreur lors de la modification de la transaction : " + ex.Message);
+                    }
                 }
             }
         }
@@ -233,12 +265,16 @@ namespace GestionBudget
 
         private void cboType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboType.SelectedItem?.ToString() == "Revenu")
+            if (cboType.SelectedItem == null) return;
+
+            string selectedType = cboType.SelectedItem.ToString();
+
+            if (selectedType.Equals("Revenu", StringComparison.OrdinalIgnoreCase))
             {
                 txtCategorie.Visible = true;
                 cbxCategorie.Visible = false;
             }
-            else if (cboType.SelectedItem?.ToString() == "Depense")
+            else if (selectedType.Equals("Depense", StringComparison.OrdinalIgnoreCase))
             {
                 txtCategorie.Visible = false;
                 cbxCategorie.Visible = true;

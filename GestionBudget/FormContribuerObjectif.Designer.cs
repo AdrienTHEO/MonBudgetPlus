@@ -89,10 +89,11 @@
             this.label3.Location = new System.Drawing.Point(93, 26);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(245, 26);
+            this.label3.Size = new System.Drawing.Size(252, 26);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Contribuer a lobjectifs";
+            this.label3.Text = "Contribuer a l\'objectifs\r\n";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // pictureBox1
             // 
